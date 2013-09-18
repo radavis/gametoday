@@ -1,18 +1,28 @@
 <h1>Games Today...</h1>
 
-<% @events.each do |event| %>
-  <%= event['datetime_local'] %><br/>
-  <%= event['title'] %><br/>
-  <%= event['url'] %><br/>
-  <%= event['venue']['location'] %><br/>
-  <br/>
+<%= form_tag("/events", method: "get") do %>
+  <%= label_tag(:city, "City:") %>
+  <%= text_field_tag(:city) %>
+  <%= submit_tag("Search Events") %>
 <% end %>
 
 
-<% if Rails.env.development? %>
-  <pre>
-    <%= @query.query %>
-    <%= @query.attributes %>
-    <%= PP.pp(@events, "") %>
-  </pre>
+<% if !@events.nil? %>
+  <% @events.each do |event| %>
+    <%= event['datetime_local'] %><br/>
+    <%= event['title'] %><br/>
+    <%= event['url'] %><br/>
+    <%= event['venue']['location'] %><br/>
+    <br/>
+  <% end %>
+
+
+  <% if Rails.env.development? %>
+    <pre>
+      <%= @query.query %>
+      <%= @query.attributes %>
+      <%= PP.pp(@events, "") %>
+    </pre>
+  <% end %>
+
 <% end %>

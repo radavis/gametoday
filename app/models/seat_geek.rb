@@ -11,7 +11,7 @@ module SeatGeek
       @attributes = attributes
       @query = "#{BASE_URL}"
       build_query
-      fetch_results
+      @results = fetch_results
     end
 
     def build_query
@@ -44,7 +44,7 @@ module SeatGeek
     end
 
     def fetch_results
-      @results = JSON.parse(RestClient.get(@query))['events']
+      JSON.parse(RestClient.get(@query))['events']
     end
   end
 end
