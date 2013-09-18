@@ -3,11 +3,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'less-rails'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -20,7 +21,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -42,9 +42,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
-gem 'twitter-bootstrap-rails'
-
 gem 'rest-client'
 gem 'json'
 
@@ -59,5 +56,3 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'valid_attribute'
 end
-
-
