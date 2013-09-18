@@ -43,10 +43,10 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails'
+gem 'twitter-bootstrap-rails'
 
-
+gem 'rest-client'
+gem 'json'
 
 group :test, :development do
   gem 'capybara'
