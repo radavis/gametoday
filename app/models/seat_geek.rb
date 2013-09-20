@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'JSON'
+require 'URI'
 
 module SeatGeek
   class SeatGeekEventQuery
@@ -21,7 +22,7 @@ module SeatGeek
           @query << "range=#{v}mi"  # assume miles
 
         elsif k[/city/]
-          @query << "venue.city=#{v}"
+          @query << "venue.city=#{v.gsub(' ', '+').downcase}"
 
         elsif k[/date/]
           date = v
@@ -44,7 +45,7 @@ module SeatGeek
     end
 
     def fetch_results
-      JSON.parse(RestClient.get(@query))['events']
+      JSON.parse(RestClient.get(URI.encode(@query)))['events']
     end
   end
 end

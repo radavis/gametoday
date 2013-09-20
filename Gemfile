@@ -42,6 +42,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# SeatGeek gems
 gem 'rest-client'
 gem 'json'
 

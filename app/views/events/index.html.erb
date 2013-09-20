@@ -1,9 +1,9 @@
 <h1>Games Today...</h1>
 
-<%= form_tag("/events", method: "get") do %>
-  <%= label_tag(:city, "City:") %>
-  <%= text_field_tag(:city) %>
-  <%= submit_tag("Search Events") %>
+<%= form_tag("/events", method: "get", class: "form-inline") do %>
+
+  <%= text_field_tag(:city, "City") %>
+  <%= submit_tag("Search Events", class: "btn") %>
 <% end %>
 
 
@@ -24,5 +24,8 @@
       <%= PP.pp(@events, "") %>
     </pre>
   <% end %>
+
+<% else %>
+  <p>Sorry, no games today<p>
 
 <% end %>
