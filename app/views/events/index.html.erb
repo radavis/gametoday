@@ -1,23 +1,33 @@
-<h1>Games Today...</h1>
-
 <%= form_tag("/events", method: "get", class: "form-inline") do %>
 
   <%= text_field_tag(:city, "City") %>
-  <%= submit_tag("Search Events", class: "btn") %>
+  <%= submit_tag("Search Events", class: "btn btn-success") %>
 <% end %>
 
 
-<% if !@events.nil? %>
+
+<h3>Games Today...</h3>
+
+<% if @events and !@events.empty? %>
+  <div class="row">
   <% @events.each do |event| %>
-    <%= event['datetime_local'] %><br/>
-    <%= event['title'] %><br/>
-    <%= event['url'] %><br/>
-    <%= event['venue']['location'] %><br/>
+
+    <div class="well span6 offset3">
+
+    Title: <strong><%= event['title'] %></strong><br/>
+    time: <%= DateTime.iso8601(event['datetime_local']).strftime("%I:%M %p") %><br/>
+    <a href="<%= event['url'] %>">tickets</a><br/>
+    coordinates: <%= event['venue']['location'] %><br/>
+    venue: <%= event['venue']['name'] %><br/>
     <br/>
+
+    </div>
   <% end %>
+  </div>
 
 
   <% if Rails.env.development? %>
+    <h5>Debug Info</h5>
     <pre>
       <%= @query.query %>
       <%= @query.attributes %>
@@ -25,7 +35,7 @@
     </pre>
   <% end %>
 
-<% else %>
+<% elsif !@events.nil? %>
   <p>Sorry, no games today<p>
 
 <% end %>
