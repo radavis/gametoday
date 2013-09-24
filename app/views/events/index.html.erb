@@ -26,16 +26,21 @@
   </div>
 
 
-  <% if Rails.env.development? %>
-    <h5>Debug Info</h5>
-    <pre>
-      <%= @query.query %>
-      <%= @query.attributes %>
-      <%= PP.pp(@events, "") %>
-    </pre>
-  <% end %>
-
 <% elsif !@events.nil? %>
   <p>Sorry, no games today<p>
 
+<% end %>
+
+
+<% if Rails.env.development? %>
+  <h5>Debug Info</h5>
+  <pre>
+    <%= @query.query if @query %>
+    <%= @query.attributes if @query%>
+    <%= PP.pp(@events, "") if @events%>
+  </pre>
+
+  <pre>
+    <%= PP.pp(@session, "") if @session%>
+  </pre>
 <% end %>

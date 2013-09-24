@@ -48,7 +48,7 @@
           </a>
 
           <a class="brand" href="#">GameToday.in
-            <%= "/ #{params[:city].titleize}" if params[:city]%>
+            <%= "/ #{session[:city].titleize}" if session[:city]%>
 
           </a>
 
