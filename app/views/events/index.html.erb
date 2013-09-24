@@ -1,25 +1,28 @@
-<%= form_tag("/events", method: "get", class: "form-inline") do %>
-
-  <%= text_field_tag(:city, "City") %>
-  <%= submit_tag("Search Events", class: "btn btn-success") %>
-<% end %>
-
-
-
-<h3>Games Today...</h3>
-
 <% if @events and !@events.empty? %>
   <div class="row">
   <% @events.each do |event| %>
 
     <div class="well span6 offset3">
 
-    Title: <strong><%= event['title'] %></strong><br/>
-    time: <%= DateTime.iso8601(event['datetime_local']).strftime("%I:%M %p") %><br/>
-    <a href="<%= event['url'] %>">tickets</a><br/>
-    coordinates: <%= event['venue']['location'] %><br/>
-    venue: <%= event['venue']['name'] %><br/>
-    <br/>
+      <div class="title">
+        <strong><%= event['title'] %></strong>
+      </div>
+
+      <div class="time">
+        <%= DateTime.iso8601(event['datetime_local']).strftime("%I:%M %p") %>
+      </div>
+
+      <div class="tickets">
+        <a href="<%= event['url'] %>">tickets</a>
+      </div>
+
+      <div class="coordinates">
+        <%= event['venue']['location'] %>
+      </div>
+
+      <div class="venue">
+        <%= event['venue']['name'] %>
+      </div>
 
     </div>
   <% end %>
@@ -38,9 +41,5 @@
     <%= @query.query if @query %>
     <%= @query.attributes if @query%>
     <%= PP.pp(@events, "") if @events%>
-  </pre>
-
-  <pre>
-    <%= PP.pp(@session, "") if @session%>
   </pre>
 <% end %>

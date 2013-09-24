@@ -48,9 +48,14 @@
           </a>
 
           <a class="brand" href="#">GameToday.in
-            <%= "/ #{session[:city].titleize}" if session[:city]%>
-
+            <%= "/ #{@city.titleize}" if @city%>
           </a>
+
+          <%= form_tag("/events", method: "get", class: "nav-collapse navbar-form pull-right") do %>
+
+            <%= text_field_tag(:city, "City") %>
+            <%= submit_tag("Search Events", class: "btn btn-success") %>
+          <% end %>
 
           <!--
           <div class="container nav-collapse">
@@ -71,27 +76,12 @@
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
-
-          <!--
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
-              <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
-              </ul>
-            </div>
-          </div>
-          -->
         </div><!--/row-->
-
-      <footer>
-
-      </footer>
-
     </div> <!-- /container -->
+
+
+    <footer>
+    </footer>
 
   </body>
 </html>

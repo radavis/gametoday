@@ -8,12 +8,12 @@ class EventsController < ApplicationController
     #session[:city]  # we set the city
 
     @city = params[:city] # validate against a known list of cities
-    @city ||= params[:path]
-    @city ||= session[:city]
-    binding.pry
+    #@city = params[:path]
+    #@city ||= session[:city]
+    #binding.pry
 
     if @city
-      session[:city] = @city
+      #session[:city] = @city
       @query = SeatGeek::SeatGeekEventQuery.new({
         city: @city,
         date: 'today',
