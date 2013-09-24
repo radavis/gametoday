@@ -3,37 +3,32 @@
   <% @events.each do |event| %>
 
     <div class="well span6 offset3">
-
-      <div class="title">
-        <strong><%= event['title'] %></strong>
+      <div class="event-title text-center">
+        <h3><%= event['title'] %></h3>
       </div>
 
-      <div class="time">
+      <div class="time text-center">
         <%= DateTime.iso8601(event['datetime_local']).strftime("%I:%M %p") %>
       </div>
 
-      <div class="tickets">
-        <a href="<%= event['url'] %>">tickets</a>
-      </div>
-
-      <div class="coordinates">
+      <div class="coordinates hidden">
         <%= event['venue']['location'] %>
       </div>
 
-      <div class="venue">
-        <%= event['venue']['name'] %>
+      <div class="venue text-center">
+        <h5><%= event['venue']['name'] %></h5>
       </div>
 
+      <div class="tickets text-center">
+        <a class="btn btn-mini btn-info" href="<%= event['url'] %>">tickets</a>
+      </div>
     </div>
   <% end %>
   </div>
 
-
 <% elsif !@events.nil? %>
   <p>Sorry, no games today<p>
-
 <% end %>
-
 
 <% if Rails.env.development? %>
   <h5>Debug Info</h5>
