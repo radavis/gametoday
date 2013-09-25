@@ -1,6 +1,6 @@
 require 'rest-client'
-require 'JSON'
-require 'URI'
+require 'json'
+require 'net/http'
 
 module SeatGeek
   class SeatGeekEventQuery
