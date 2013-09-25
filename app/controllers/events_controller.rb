@@ -23,6 +23,7 @@ class EventsController < ApplicationController
     end
   end
 
+
   protected
   def event_params
     params.permit(:city)

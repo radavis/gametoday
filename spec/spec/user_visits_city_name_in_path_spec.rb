@@ -11,6 +11,7 @@ feature "Frontpage", %q{
 # * The page shows a list of games, sorted by date and time
 
   scenario "user enters a valid city name" do
+    pending
     visit '/boston'
     expect(page).to have_content("Boston")
   end

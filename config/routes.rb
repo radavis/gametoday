@@ -1,4 +1,4 @@
 Gametoday::Application.routes.draw do
-  resources :events
+  resources :events, only: [:index]
   root "events#index"
 end

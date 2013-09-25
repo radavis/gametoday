@@ -11,6 +11,7 @@ feature "Remember location", %q{
 # * The user should be able to see a list of games in their city
 
   scenario "user returns" do
+    pending
     visit '/Austin'
     visit '/'
     expect(page).to have_content('Austin')

@@ -18,7 +18,7 @@ feature 'user searches by location', %q{
 
     visit '/'  #root_path
 
-    fill_in 'City', with: 'Boston'
+    fill_in 'city', with: 'Boston'
     click_on 'Search Events'
 
     expect(page).to have_content('Baltimore Orioles at Boston Red Sox')
