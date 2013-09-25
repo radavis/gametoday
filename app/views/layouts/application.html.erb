@@ -33,7 +33,7 @@
 
           <%= form_tag("/events", method: "get", class: "nav-collapse navbar-form pull-right") do %>
 
-            <%= text_field_tag(:city, "City") %>
+            <%= text_field_tag(:city, nil, placeholder: "City") %>
             <%= submit_tag("Search Events", class: "btn btn-success") %>
           <% end %>
 
