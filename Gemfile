@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -45,6 +47,10 @@ end
 # SeatGeek gems
 gem 'rest-client'
 gem 'json'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :test, :development do
   gem 'capybara'
