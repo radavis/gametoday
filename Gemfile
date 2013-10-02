@@ -8,6 +8,7 @@ gem 'rails', '4.0.0'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
+gem 'devise'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
