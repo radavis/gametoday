@@ -1,19 +1,23 @@
 class EventsController < ApplicationController
   def index
-    # grab city name from url and persist this in the session
-    # allows for gametoday.in/boston
 
     #params[:city]   # user searches events (presedence)
     #params[:path]   # user types gametoday.in/boston
     #session[:city]  # we set the city
 
-    @city = event_params[:city] # validate against a known list of cities
+    #@city = event_params[:city] # validate against a known list of cities
     #@city = params[:path]
     #@city ||= session[:city]
-    #binding.pry
+
+    if event_params[:city]
+      @city = event_params[:city]
+      session[:city] = event_params[:city]
+
+    elsif session[:city]
+      @city = session[:city]
+    end
 
     if @city
-      #session[:city] = @city
       @query = SeatGeek::SeatGeekEventQuery.new({
         city: @city,
         date: 'today',
