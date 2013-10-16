@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131016183910) do
     t.string   "title",          null: false
     t.string   "datetime_local", null: false
     t.string   "type",           null: false
-    t.string   "location",       null: false
+    t.string   "city",           null: false
     t.string   "venue",          null: false
     t.string   "url",            null: false
   end
