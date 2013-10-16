@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20131016183910) do
     t.datetime "updated_at"
     t.string   "title",          null: false
     t.string   "datetime_local", null: false
-    t.string   "type",           null: false
+    t.string   "league",         null: false
     t.string   "city",           null: false
     t.string   "venue",          null: false
     t.string   "url",            null: false

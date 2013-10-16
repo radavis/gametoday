@@ -18,12 +18,7 @@ class EventsController < ApplicationController
     end
 
     if @city
-      @query = SeatGeek::SeatGeekEventQuery.new({
-        city: @city,
-        date: 'today',
-        type: "sports"
-      })
-      @events = @query.results
+      @events = Event.today_in(@city)
     end
   end
 
