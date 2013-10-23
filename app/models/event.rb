@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :url
 
   def self.today_in(city_name)
+    city_name = city_name.downcase # probably should check against a whitelist of cities
+
     # TODO: date should be determined by user's timezone
     results = where(city: city_name).where("date(created_at) = ?", Date.today)
     return results if !results.empty?
@@ -24,7 +26,7 @@ class Event < ActiveRecord::Base
           title: event['title'],
           datetime_local: event['datetime_local'],
           league: event['type'],
-          city: event['venue']['city'],
+          city: event['venue']['city'].downcase,
           venue: event['venue']['name'],
           url: event['url']
         )
